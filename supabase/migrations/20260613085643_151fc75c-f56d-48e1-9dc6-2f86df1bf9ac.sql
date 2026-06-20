@@ -1,0 +1,1 @@
+ALTER TABLE public.consultant_reports ADD COLUMN IF NOT EXISTS investment_thesis jsonb;

@@ -1,0 +1,372 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ExecutiveOS — "Executive Headquarters" design system
+ * A private, AI-powered executive operating system. Calm, editorial, premium.
+ *
+ * Palette (hex source):
+ *   Parchment      #F8EBDC   page
+ *   Glass paper    rgba(255,255,255,0.55)
+ *   Prussian ink   #1C2F4D   primary text + sidebar
+ *   Rose accent    #D48D91
+ *   Analytics      #93AEBF
+ *   Premium action #400D01   (oxblood)
+ *
+ * Display: Cormorant Garamond · Body: Inter
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-rose: var(--rose);
+  --color-analytics: var(--analytics);
+  --color-premium: var(--premium);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --shadow-elegant: 0 1px 2px rgba(28, 47, 77, 0.05), 0 30px 70px -48px rgba(28, 47, 77, 0.28);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 2px rgba(28, 47, 77, 0.03);
+}
+
+:root {
+  --radius: 1rem; /* luxury rounded — cards read at ~24px via rounded-2xl */
+
+  /* Parchment page background */
+  --background: #f8ebdc;
+  --foreground: #1c2f4d;
+
+  /* Glass-paper card surface */
+  --card: rgba(255, 255, 255, 0.55);
+  --card-foreground: #1c2f4d;
+
+  /* Elevation tiers (translucent) */
+  --surface-1: rgba(255, 255, 255, 0.42);
+  --surface-2: rgba(255, 255, 255, 0.6);
+  --surface-3: rgba(255, 255, 255, 0.78);
+
+  --popover: #fbf3e8;
+  --popover-foreground: #1c2f4d;
+
+  /* Premium action — oxblood */
+  --primary: #400d01;
+  --primary-foreground: #f8ebdc;
+
+  /* Rose accent doubles as decorative "secondary" used across the app */
+  --secondary: #d48d91;
+  --secondary-foreground: #3a0a06;
+
+  --muted: rgba(28, 47, 77, 0.06);
+  --muted-foreground: rgba(28, 47, 77, 0.74);
+
+  --accent: rgba(212, 141, 145, 0.16);
+  --accent-foreground: #1c2f4d;
+
+  --destructive: #b0473d;
+  --destructive-foreground: #fbf3e8;
+
+  --success: #5f8a6a;
+  --success-foreground: #f4fbf5;
+
+  --warning: #c08a3e;
+  --warning-foreground: #2a1c08;
+
+  /* Named accents */
+  --rose: #d48d91;
+  --analytics: #93aebf;
+  --premium: #400d01;
+
+  --border: rgba(28, 47, 77, 0.1);
+  --input: rgba(28, 47, 77, 0.14);
+  --ring: rgba(212, 141, 145, 0.55);
+
+  /* Chart palette tuned to the parchment scheme */
+  --chart-1: #5e8aa0;   /* analytics slate */
+  --chart-2: #d48d91;   /* rose */
+  --chart-3: #1c2f4d;   /* prussian */
+  --chart-4: #c2922f;   /* ochre */
+  --chart-5: #6b2018;   /* oxblood */
+
+  /* Sidebar = Prussian blue */
+  --sidebar: #1c2f4d;
+  --sidebar-foreground: rgba(248, 235, 220, 0.88);
+  --sidebar-primary: #d48d91;
+  --sidebar-primary-foreground: #1c2f4d;
+  --sidebar-accent: rgba(212, 141, 145, 0.15);
+  --sidebar-accent-foreground: #f8ebdc;
+  --sidebar-border: rgba(248, 235, 220, 0.1);
+  --sidebar-ring: rgba(212, 141, 145, 0.5);
+}
+
+.dark {
+  /* App renders light; neutralize inherited dark variant. */
+  color-scheme: light;
+}
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Scrollbars ──────────────────────────────────────────────────────────
+ * Hide the chrome entirely where requested (sidebar) but keep scrolling,
+ * and use a slim, on-brand scrollbar everywhere else. */
+.no-scrollbar {
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* legacy Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;                    /* WebKit / Chromium */
+}
+
+.scrollbar-slim {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(248, 235, 220, 0.22) transparent;
+}
+.scrollbar-slim::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-slim::-webkit-scrollbar-thumb {
+  background: rgba(248, 235, 220, 0.18);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+.scrollbar-slim:hover::-webkit-scrollbar-thumb {
+  background: rgba(248, 235, 220, 0.32);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.003em;
+    background-image:
+      radial-gradient(ellipse 72% 52% at 10% -10%, rgba(212, 141, 145, 0.12), transparent 60%),
+      radial-gradient(ellipse 64% 46% at 100% 4%, rgba(147, 174, 191, 0.12), transparent 62%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.05;
+  }
+}
+
+/* ── Glass-paper card system ─────────────────────────────────────────── */
+.executive-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  border: 1px solid rgba(28, 47, 77, 0.08);
+  box-shadow: var(--shadow-card);
+}
+.executive-card-elevated {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px) saturate(125%);
+  -webkit-backdrop-filter: blur(28px) saturate(125%);
+  border: 1px solid rgba(28, 47, 77, 0.1);
+  box-shadow: var(--shadow-elegant);
+}
+.surface-inset {
+  background: rgba(28, 47, 77, 0.035);
+  border: 1px solid rgba(28, 47, 77, 0.07);
+}
+.executive-card-hero {
+  background:
+    radial-gradient(135% 95% at 0% 0%, rgba(212, 141, 145, 0.14), transparent 55%),
+    radial-gradient(125% 100% at 100% 0%, rgba(147, 174, 191, 0.14), transparent 60%),
+    rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(30px) saturate(125%);
+  -webkit-backdrop-filter: blur(30px) saturate(125%);
+  border: 1px solid rgba(28, 47, 77, 0.1);
+  box-shadow: var(--shadow-elegant);
+}
+
+/* ── Typographic / structural devices ────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(118deg, #1c2f4d 0%, #7c3b43 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-balance { text-wrap: balance; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+.accent-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 141, 145, 0.7), transparent);
+}
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(28, 47, 77, 0.12) 20%, rgba(28, 47, 77, 0.12) 80%, transparent);
+}
+.masthead-rule {
+  height: 1px;
+  background: rgba(28, 47, 77, 0.18);
+}
+
+/* Sidebar active indicator — rose bar without layout shift */
+.nav-active {
+  box-shadow: inset 3px 0 0 var(--color-rose);
+}
+
+/* ── Executive Workflow pipeline ─────────────────────────────────────── */
+.workflow-node {
+  --c: var(--color-analytics);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background-color 0.4s ease;
+}
+.workflow-node:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--c) 45%, transparent);
+  box-shadow:
+    0 26px 50px -28px color-mix(in oklab, var(--c) 55%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.workflow-icon {
+  background: color-mix(in oklab, var(--c) 14%, white);
+  color: color-mix(in oklab, var(--c) 70%, #1c2f4d);
+  border: 1px solid color-mix(in oklab, var(--c) 30%, transparent);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.4s ease, color 0.4s ease;
+}
+.workflow-node:hover .workflow-icon {
+  background: color-mix(in oklab, var(--c) 85%, white);
+  color: white;
+  transform: scale(1.06) rotate(-2deg);
+}
+@keyframes workflow-sheen {
+  0% { background-position: 0% 0; }
+  100% { background-position: -200% 0; }
+}
+.workflow-track {
+  height: 1px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    var(--color-analytics),
+    var(--color-rose),
+    var(--color-chart-4),
+    var(--color-primary),
+    var(--color-analytics)
+  );
+  background-size: 200% 100%;
+  animation: workflow-sheen 9s linear infinite;
+  opacity: 0.55;
+}
+.workflow-connector {
+  background: linear-gradient(90deg, transparent, rgba(28, 47, 77, 0.22), transparent);
+}
+
+/* ── Global motion polish ────────────────────────────────────────────────
+ * Smooth, consistent easing for the interactive chrome (nav, buttons,
+ * links, inputs) so the whole app feels fluid rather than snappy. */
+a,
+button,
+[role="button"],
+[data-sidebar="menu-button"],
+[data-sidebar="menu-sub-button"] {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 0.22s;
+}
+
+/* Sidebar nav items lift subtly on hover for a tactile feel */
+[data-sidebar="menu-button"],
+[data-sidebar="menu-sub-button"] {
+  transition-property: color, background-color, box-shadow, transform;
+  will-change: transform;
+}
+[data-sidebar="menu-button"]:hover,
+[data-sidebar="menu-sub-button"]:hover {
+  transform: translateX(2px);
+}
+
+/* Route content fades + rises in on navigation */
+@keyframes route-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.route-enter {
+  animation: route-enter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-track { animation: none; }
+  html { scroll-behavior: auto; }
+  .route-enter { animation: none; }
+  [data-sidebar="menu-button"]:hover,
+  [data-sidebar="menu-sub-button"]:hover {
+    transform: none;
+  }
+}
