@@ -99,7 +99,7 @@ function RootShell({ children }: { children: ReactNode }) {
     o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
     y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
     z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-})('b84b8ba1-8973-4cd5-bf3b-30ea55488ba9');`,
+})('${import.meta.env.VITE_PENDO_API_KEY}');`,
           }}
         />
       </head>
